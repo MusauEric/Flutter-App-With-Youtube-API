@@ -58,6 +58,7 @@ Future<List<Video>> fetchVideos() async {
   if (response.statusCode == 200) {
     Iterable items = jsonDecode(response.body)['items'];
     List<Video> videos = items.map((video) => Video.fromJson(video)).toList();
+    print('Failed to load$videos');
     return videos;
   } else {
     throw Exception('Failed to load');
